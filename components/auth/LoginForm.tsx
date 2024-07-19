@@ -1,13 +1,27 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Input from '../input';
 import Button from '../button';
 
 function LoginForm() {
-  const handleSubmit = () => {
-    console.log('Form submitted');
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
   };
+
+  const handleSubmit = () => {
+    // Handle form submission
+    console.log('submit')
+  }
 
   return (
     <section>
@@ -27,12 +41,16 @@ function LoginForm() {
                       placeholder="Email"
                       label="Email"
                       ariaLabel="Email"
+                      value={formData.email}
+                      onChange={handleChange}
                     />
                     <Input
                       type="password"
                       placeholder="Password"
                       label="Password"
                       ariaLabel="Password"
+                      value={formData.password}
+                      onChange={handleChange}
                     />
                     <Button
                       text="Sign in"

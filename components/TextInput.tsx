@@ -1,16 +1,16 @@
 import React from 'react';
 
-interface InputProps {
-  type?: string;
-  placeholder?: string;
-  label?: string;
-  ariaLabel?: string;
-  name?: string;
+interface TextInputProps {
+  type: string;
+  placeholder: string;
+  label: string;
+  ariaLabel: string;
+  name: string;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Input: React.FC<InputProps> = ({ type, placeholder, label, ariaLabel, name, value, onChange }) => {
+const TextInput: React.FC<TextInputProps> = ({ type, placeholder, label, ariaLabel, name, value, onChange }) => {
   return (
     <div className="mb-4">
       <label className="mb-2 ml-1 font-bold text-xs text-slate-700">{label}</label>
@@ -27,4 +27,4 @@ const Input: React.FC<InputProps> = ({ type, placeholder, label, ariaLabel, name
   );
 };
 
-export default Input;
+export default TextInput;
